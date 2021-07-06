@@ -1,0 +1,36 @@
+<div class="contaner">
+    <div class="row">
+        <div class="col-md-8 my-2">
+            <h2>Daftar Mahasiswa</h2>
+          
+            <a href="/add" class="btn btn-primary">Tambah Data</a>
+            <% if (msg.length !== 0) { %>
+              <div class="alert alert-info" role="alert">
+                <%= msg %> 
+              </div>
+             
+            <% } %>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col"><i class="bi bi-bookmark"></i></th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Kontak</th>
+                    <th scope="col">Detail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% _m.forEach((c, i) => { %>
+                        <tr>
+                            <th scope="row"><%- 1+i %> </th>
+                            <td><%= c.nama %> </td>
+                            <td><%= c.nomor %></td>
+                            <td><a href="/mahasiswa/<%= c.nama %> " class="btn btn-success badge rounded-pill "><i class="bi bi-info-circle"></i> </a></td>
+                          </tr>
+                    <% }) %>
+              
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

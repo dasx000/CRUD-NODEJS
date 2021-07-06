@@ -1,0 +1,29 @@
+<div class="container ">
+  <div class="row ">
+      <div class="col-md-4 my-5">
+        <% if (!detail) { %>
+          <div class="alert alert-danger" role="alert">
+            Mahasiswa tidak ditemukan!! <br> 
+          </div>
+          <a href="/mahasiswa" class="btn btn-success">Back</a>
+        
+        <% } else {%>
+          <div class="card " style="width: 18rem;">
+              <!-- <img src="img/pp.jpg" class="card-img-top img-fluid"> -->
+              <div class="card-body">
+                <h5 class="card-title"><%= detail.nama %> </h5>
+                <h6 class="card-subtitle mb-2 text-muted"><strong>Nomor: </strong><%= detail.nomor %> </h6>
+                <h6 class="card-subtitle mb-2 text-muted"><strong>Email:</strong> <%= detail.email %> </h6>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                <a href="/mahasiswa" class="btn btn-primary">Back</a> 
+                <a href="/mahasiswa/edit/<%= detail.nama %>" class="btn btn-success">Edit</a> 
+                <form  action="/mahasiswa?_method=DELETE" method="POST" class="d-inline">
+                  <input type="hidden" name="nama" value="<%- detail.nama %>">
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Delete</button>
+                </form>
+              </div>
+            </div>
+        <% } %> 
+      </div>
+  </div>
+</div>
