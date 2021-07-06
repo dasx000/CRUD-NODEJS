@@ -11,7 +11,7 @@ const { body, validationResult, check } = require('express-validator')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const flash = require('connect-flash')
-const {Student} = require('./lib/db.js')
+const { Student } = require('./lib/db.js')
 const methodOverride = require('method-override');
 
 
