@@ -53,9 +53,8 @@ app.get('/mahasiswa', async (req, res) => {
 
 app.delete('/mahasiswa',  (req, res) => {
 
-  let ah = req.body.nama?.trim()
 
-  Student.deleteOne({nama: ah}).then(result=> console.log(result))
+  Student.deleteOne({nama: req.body.nama}).then(result=> console.log(result))
     .then(result => {
       req.flash('msg', 'Data Berhasil Dihapus')
       res.redirect('/mahasiswa')
