@@ -6,12 +6,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 const expressLayouts = require('express-ejs-layouts');
 // let _mahasiswa = JSON.parse(fs.readFileSync('./database/mahasiswa.json'))
-const {
-  findMahasiswa,
-  addMahasiswa,
-  loadMahasiswa,
-  checkDuplicate,
-} = require('./lib/mahasiswa.js');
+// const {
+//   findMahasiswa,
+//   addMahasiswa,
+//   loadMahasiswa,
+//   checkDuplicate,
+// } = require('./lib/mahasiswa.js');
 const { body, validationResult, check } = require('express-validator');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -102,7 +102,7 @@ app.post(
       });
       // return res.status(400).json({ errors: errors.array() });
     } else {
-      addMahasiswa(req.body);
+      // addMahasiswa(req.body);
       Student.insertMany(req.body, (error, result) => {
         req.flash('msg', 'Data Berhasil Ditambahkan');
         res.redirect('/mahasiswa');
